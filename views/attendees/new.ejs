@@ -1,0 +1,14 @@
+<% include ../partials/header %>
+
+<div class="container">
+<h1>Add Guest to <%= workspace.url %><h1>
+
+<form action="/dashlist/<%= workspace._id %>/attendees" method="POST">
+	<input id="nameEnter" type="text" name="name" placeholder="Enter name">
+	<button type="submit" id="addGuest" class="btn btn-outline-primary btn-sm m-0 waves-effect">Add as Guest</button>
+
+
+</form>
+</div>
+
+<% include ../partials/footer %>

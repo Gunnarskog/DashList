@@ -1,0 +1,94 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+    
+  	<div class="row">
+    <div class="col-sm">
+    		<h1 id="header">Welcome to <%= workspace.url %>
+    			</h1>
+    </div>
+	</div>  
+
+	<table id="mainTable" class="table table-dark table-striped">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th></th>
+				      <th><strong>Name</strong></th>
+				      <th><strong>Beers</strong></th>
+				      <th><strong>Wine</strong></th>
+				      <th><strong>Liquor</strong></th>
+				      <th><strong>More Info</strong></th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				   	<% allAttendees = workspace.attendeeList %>
+				  	<% allAttendees.forEach(function(attendee, index){ %>
+				    <tr>
+				      <th id="indexRow" scope="row"><%= index+1 %></th>
+				    		
+				    		<td><%= attendee.name %></td>
+				    	
+							<td>
+								
+				    			<form action="/dashlist/<%= workspace._id %>/attendees" method="POST">
+
+				    		
+
+								<input type="value" name="attendeeID" value="<%= attendee._id %>" hidden>
+								
+								<button id="addBtn" type="submit" name="beverage" value="addbeers" class="btn btn-outline-primary btn-sm m-0 waves-effect">+</button>
+				
+								<%= attendee.beers %>
+								
+								<button id="removeBtn" type="submit" name="beverage" value="removebeers" class="btn btn-outline-primary btn-sm m-0 waves-effect">-</button>
+								
+								</div>
+
+								</form>
+								
+							</td>
+
+							<td>
+				    			<form action="/dashlist/<%= workspace._id %>/attendees" method="POST">
+								<input type="value" name="attendeeID" value="<%= attendee._id %>" hidden>
+								<button id="addBtn" type="submit" name="beverage" value="addwine" class="btn btn-outline-primary btn-sm m-0 waves-effect">+</button>
+
+								<%= attendee.wine %> 
+
+								<button id="removeBtn" type="submit" name="beverage" value="removewine" class="btn btn-outline-primary btn-sm m-0 waves-effect">-</button>
+								</form>
+							</td>
+
+							<td>
+				    			<form action="/dashlist/<%= workspace._id %>/attendees" method="POST">
+								<input type="value" name="attendeeID" value="<%= attendee._id %>" hidden>
+								<button id="addBtn" type="submit" name="beverage" value="addliquor" class="btn btn-outline-primary btn-sm m-0 waves-effect">+</button>
+
+								<%= attendee.liquor %> 
+
+								<button id="removeBtn" type="submit" name="beverage" value="removeliquor" class="btn btn-outline-primary btn-sm m-0 waves-effect">-</button>
+								</form>
+							</td>
+				    		
+				    		<td><a href="/dashlist/<%= workspace._id %>/attendees/<%= attendee._id %>" id="infoBtn" class="btn btn-outline-primary btn-sm m-0 waves-effect">More Stats</td>
+
+				    		<form action="/dashlist/<%= workspace._id %>/attendees" method="POST">
+				    		<input type="value" name="attendeeID" value="<%= attendee._id %>" hidden>
+							<td><button type="submit" name="beverage" value="del" id="delBtn" class="btn btn-outline-primary btn-sm m-0 waves-effect">Delete</button></td>
+							</form>			
+				    </tr>
+				    <% }) %>
+				
+				  </tbody>
+				</table>
+
+			<a id="adder" href="/dashlist/<%= workspace._id %>/attendees/new">Click here to add guest<a>
+
+</div>
+
+
+
+
+
+<% include ../partials/footer %>

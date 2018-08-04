@@ -1,0 +1,198 @@
+html, body {
+	width: auto !important;
+overflow-x: hidden !important;
+
+}
+
+html {
+  height: 100%;
+}
+
+body{
+
+	background: url(https://images.unsplash.com/photo-1495839924086-b11bf070c5ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=49a6210b9bca20cfbf5dbd673baf6c0a&auto=format&fit=crop&w=967&q=80);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+ 	background-position: center center;
+	font-family: 'Amatic SC', cursive;
+	font-weight: 700;
+	color: white;
+	min-height: 100%;
+
+}
+
+h1 {
+font-size: 6rem;
+}
+
+#adder{
+	color: black;
+	font-weight: 900;
+	font-size: 40px;
+	text-align: center;
+}
+.form-control {
+	height: 60px;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+#createButton{
+	margin-top: 50px;
+}
+#formEnter {
+	font-size: 2rem;
+}
+
+.content {
+	text-align: center;
+	padding-top: 15%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,1),
+				 0px 8px 13px rgba(0,0,0,0.6),
+				 0px 18px 23px rgba(0,0,0,0.2);
+}
+
+#header {
+	font-size: 3rem;
+	text-align: center;
+	padding-top: 10%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.8),
+				 0px 8px 13px rgba(0,0,0,0.4),
+				 0px 18px 23px rgba(0,0,0,0.2);
+}
+
+
+.waves-effect{
+	font-family: sans-serif;
+	font-weight: 900;
+	border: 1px solid white;
+	font-weight: 700;
+	width: 40px;
+	height: 30px;
+	vertical-align: center;
+	text-align: center;
+
+}
+
+#infoBtn{
+	font-family: sans-serif, cursive;
+	width: 100px;
+	color: white;
+	height: 30px;
+	font-weight: 700;
+}
+
+#addBtn {
+	color: green;
+}
+
+#removeBtn{
+	color: red;
+}
+
+#delBtn {
+	font-family: sans-serif, cursive;
+	width: 100px;
+	color: red;
+	height: 30px;
+	font-weight: 700;
+}
+
+#indexRow{
+	font-size: 40px;
+	text-align: center;
+}
+
+td{
+	font-size: 40px;
+	text-align: center;
+}
+table {
+	border-radius: 2%;
+	
+}
+
+th {
+	font-size: 40px;
+	font-weight: 700;
+}
+
+tr {
+	text-align: center;
+	font-size: 1.4rem;
+}
+
+td {
+ text-align: center;
+}
+
+#addGuest {
+	font-family: sans-serif, cursive;
+	width: 200px;
+	color: white;
+	height: 40px;
+	font-weight: 700;
+	display: block;
+	text-align: center;
+}
+
+#formEnter {
+	padding-top: 40px;
+	text-align: center;
+	margin: 0 auto;
+	width: 300px;
+
+}
+
+.btn-light {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+
+
+#newDiv {
+	margin: 0 auto;
+}
+
+#aEnter {
+	border: 4px solid white!important;
+	color: white;
+}
+
+a {
+	font-weight: 700;
+   margin-bottom: 15px;
+	color: white;
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 2px solid rgba(0,0,0,0.3)
+}
+
+table {
+ font-size: 20px;
+}
+
+form {
+	padding-top: 3%;
+}
+
+@media only screen and (max-width: 768px) {
+html, body {
+width: auto !important;
+overflow-x: hidden !important;
+}
+
+h1 {
+	font-weight: 400;
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 0.8em;
+}
+}
