@@ -1,14 +1,26 @@
 <% include ../partials/header %>
 
-<div class="container">
-<h1>Add Guest to <%= workspace.url %><h1>
+
+	<div id="create" class="container">
+	<div class="row">
+			<div class="col-12">
+				<div class="content">
+				<h1>Add Guest to <%= workspace.url %></h1>
+				<hr>
+				</div>
+
+
 
 <form action="/dashlist/<%= workspace._id %>/attendees" method="POST">
 	<input id="nameEnter" type="text" name="name" placeholder="Enter name">
-	<button type="submit" id="addGuest" class="btn btn-outline-primary btn-sm m-0 waves-effect">Add as Guest</button>
-
-
+<input type="submit" value="Add!">
 </form>
+
+<div id="back">
+			<a href="/dashlist/<%= workspace._id %>">Go back</a>
+</div>
+</div>
+</div>
 </div>
 
 <% include ../partials/footer %>

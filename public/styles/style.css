@@ -8,6 +8,10 @@ html {
   height: 100%;
 }
 
+.form-check-input {
+	margin-left: 10px!important;
+}
+
 body{
 
 	background: url(https://images.unsplash.com/photo-1495839924086-b11bf070c5ae?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=49a6210b9bca20cfbf5dbd673baf6c0a&auto=format&fit=crop&w=967&q=80);
@@ -26,6 +30,26 @@ h1 {
 font-size: 6rem;
 }
 
+h3 {
+	margin-top: 80px;
+	font-size: 3rem;
+	font-weight: 700;
+}
+
+#fillIn{     
+	margin: 50px 0 50px 0;
+	font-size: 2rem; 
+}
+
+#create{
+	margin-top: -100px;
+	text-align: center;
+}
+#newURL{
+	width: 400px;
+
+}
+
 #adder{
 	color: black;
 	font-weight: 900;
@@ -40,6 +64,7 @@ font-size: 6rem;
 
 #createButton{
 	margin-top: 50px;
+	text-align: center;
 }
 #formEnter {
 	font-size: 2rem;
@@ -110,9 +135,12 @@ td{
 }
 table {
 	border-radius: 2%;
+	width: 100%;
 	
 }
-
+.tableForm{
+	width: 150px;
+}
 th {
 	font-size: 40px;
 	font-weight: 700;
@@ -125,6 +153,7 @@ tr {
 
 td {
  text-align: center;
+ margin: -5px -5px;
 }
 
 #addGuest {
@@ -150,7 +179,11 @@ td {
 	font-weight: 700;
 }
 
-
+#back {
+	text-align: center;
+	font-size: 2.5rem;
+	margin-top: 50px;
+}
 
 #newDiv {
 	margin: 0 auto;
@@ -179,6 +212,10 @@ table {
 
 form {
 	padding-top: 3%;
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 2rem;
 }
 
 @media only screen and (max-width: 768px) {

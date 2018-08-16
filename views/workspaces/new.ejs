@@ -1,12 +1,90 @@
 <% include ../partials/header %>
 
-<h1>Create New Dashlist<h1>
+<!--  -->
+<div id="create" class="container">
+	<div class="row">
+			<div class="col-12">
+				<div class="content">
+				<h1>Create new dashlist</h1>
+				<hr>
+				</div>
+				<!-- Enter URL form -->
+			
+			<form action="/dashlist" method="POST">
+			    <label for="form1">Create new dashlist URL</label>
+			    <div class="form-group">
+				<input id="newURL" type="text" name="url" placeholder="Enter a desired URL" required>
+				</div>
+				<div class="form-group">
+				<!-- <input type="submit" value="Create!"> -->
+				</div>
+			<!-- </form> -->
 
-<form action="/dashlist" method="POST">
-	<input type="text" name="url" placeholder="Enter a desired URL ">
-	<button type="submit" class="btn btn-outline-primary btn-sm m-0 waves-effect">Create!</button>
+			<!-- Merchendise form -->
+		<div id="fillIn">
+			<h2>What kind of merchendise is available?</h2>
+			<div class="form-check form-check-inline">
+ 		 	<input name="beerCheck" class="form-check-input" type="checkbox" id="beerCheckbox" value="beers">
+  			<label class="form-check-label" for="beerCheckbox">Beer</label>
 
-</form>
+  			<input name="ciderCheck" class="form-check-input" type="checkbox" id="ciderCheckbox" value="cider">
+  			<label class="form-check-label" for="ciderCheckbox">Cider</label>
 
+  			<input name="wineCheck" class="form-check-input" type="checkbox" id="wineCheckbox" value="wine">
+  			<label class="form-check-label" for="wineCheckbox">Wine</label>
+
+  			<input name="liquorCheck" class="form-check-input" type="checkbox" id="liquorCheckbox" value="liquor">
+  			<label class="form-check-label" for="liquorCheckbox">Liquor</label>
+
+  			<input name="NonAlcCheck" class="form-check-input" type="checkbox" id="NonAlcCheckbox" value="NonAlcoholic">
+  			<label class="form-check-label" for="NonAlcCheckbox">NonAlc</label>
+  	</div>
+  	<div class="form-check form-check-inline">	
+  			<input name="other_1Check" class="form-check-input" type="checkbox" id="other_1Checkbox" value="other_1">
+  			<label class="form-check-label" for="other_1Checkbox">Other_1</label>
+
+  			<input name="other_2Check" class="form-check-input" type="checkbox" id="other_2Checkbox" value="other_2">
+  			<label class="form-check-label" for="other_2Checkbox">Other_2</label>
+	</div>
+
+
+		<!--
+		<div class="form-check form-check-inline">
+  			<input class="form-check-input" type="checkbox" id="wineCheckbox" value="wine">
+  			<label class="form-check-label" for="wineCheckbox">Wine</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="checkbox" id="liquorCheckbox" value="liquor">
+		  <label class="form-check-label" for="liquorCheckbox">Liquor</label>
+		</div>
+
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="checkbox" id="liquorCheckbox" value="liquor">
+		  <label class="form-check-label" for="liquorCheckbox">Soft drink</label>
+		</div>
+	</div> -->
+
+<!-- Attendance form -->
+			<h3 id="whoWillAttend">Who will be attending?</h3>
+
+  <!-- 	<form id="newNames" action="/dashlist" method="POST"> -->
+       <div class="form-group">
+          <label for="names">Enter the names of the all the attendees, separate each name with a comma (,)</label>
+          <input name="attendees" class="form-control" placeholder="Enter name" required> 
+          <input type="submit" value="Add">
+         <!--  <input type="button" onclick="myCreateFunction()" class="btn btn-light" id="add" value="Add name" >
+          <input type="button" onclick="myDeleteFunction()" class="btn btn-light" id="remove" value="Remove name" > -->
+      </div>
+    </form>
+
+
+
+
+			<div id="back">
+			<a href="/dashlist">Go back</a>
+		    </div>
+		</div>
+	</div>
+</div>
 
 <% include ../partials/footer %>
