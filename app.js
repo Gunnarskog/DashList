@@ -88,9 +88,9 @@ console.log("numOfMerchlist", numOfMerch)
 		if(err){
 			console.log(err)
 		} else {
-
-			if(typeof attendees != 'undefined') {
-				
+			console.log("Ovanför", attendees)
+			if(attendees != undefined) {
+				console.log("Efter", attendees)
  				attendeeArr.forEach(function(attendee){
  					
 						newAttendee = {name: attendee}
