@@ -88,9 +88,7 @@ console.log("numOfMerchlist", numOfMerch)
 		if(err){
 			console.log(err)
 		} else {
-			console.log("Ovanför", attendees)
 			if(attendees != undefined) {
-				console.log("Efter", attendees)
  				attendeeArr.forEach(function(attendee){
  					
 						newAttendee = {name: attendee}
@@ -160,6 +158,7 @@ app.post("/dashlist/:id/attendees", function(req, res){
 	var attendeeID = req.body.attendeeID;
 	var beverage = req.body.beverage;
 	var attendee = req.body.name;
+	var numOfMerch = [];
 
 	Workspace.findById(req.params.id, function(err, workspace){
 		if(err){
@@ -167,9 +166,19 @@ app.post("/dashlist/:id/attendees", function(req, res){
 			res.redirect("/dashlist/" + workspace._id)
 		} else {
 
-			if(typeof attendeeID == 'undefined') {
-							/*console.log(Attendee.find({}))*/
+			if(attendeeID == undefined) {
+
+							for (var i = 0; i <= workspace.merchList.length; i++) {
+ 							var merch = "merch_"+ i;
+ 							numOfMerch[i] = merch
+							}
+
 							newAttendee = {name: attendee}
+							numOfMerch.forEach(function(merch){
+							newAttendee[merch] = 0;
+							})
+							console.log(newAttendee)
+
 							Attendee.create(newAttendee, function(err, newlyCreated){
 								if(err){
 									console.log(err)
