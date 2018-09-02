@@ -3,14 +3,14 @@
 <div class="container">
 <h1 class="content">This is <%= attendee.name %>s page</h1>
 
-				    		<%var keys = Object.keys(attendee.toJSON());%>
-				    		<%keys.shift()%>
-				    		<%keys.shift()%>
-				    		<%keys.pop()%>
-
-							<% keys.forEach(function(key){ %>
-								<h2>Number of <%= key %>: <%= attendee[key] %></h2>
-							<% }) %>
+				    		<%var values = Object.values(attendee.toJSON());%>
+				    		<%values.shift()%>
+				    		<%values.shift()%>
+				    		<%values.pop()%>
+				    
+							<% for(i=0;i < values.length; i++){ %>
+								<h2>Number of <%= workspace.merchList[i]  %>: <%= values[i] %></h2>
+							<% } %>
 <!-- <h2>Total units: <%= attendee.beers + attendee.wine + attendee.liquor %></h2> -->
 
 

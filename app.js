@@ -4,6 +4,7 @@ var express 	= require("express"),
 	mongoose 	= require("mongoose")
 	seedDB		= require("./seeds")
 
+
 // ==== Rensar databasen och hittar på lite ny data,
 // bra när man utvecklar
 //seedDB();
@@ -58,25 +59,30 @@ app.get("/dashlist/found", function(req, res){
 app.post("/dashlist", function(req, res){
 	var url = req.body.url;
 	var attendees = req.body.attendees;
-	var beers = req.body.beerCheck;
-	var cider = req.body.ciderCheck;
-	var wine = req.body.wineCheck;
-	var liquor = req.body.liquorCheck;
-	var NonAlcoholic = req.body.NonAlcCheck;
-	var other_1	= req.body.other_1Check;
-	var other_2	= req.body.other_2Check;
-	console.log("oth1", other_1)	
 
-	var merchList = [beers, cider, wine, liquor, NonAlcoholic, other_1, other_2].filter(function(merch){ 
-				    	return merch !== undefined
+	var merchName_1 = req.body.merchName_1;
+	var merchName_2 = req.body.merchName_2
+	var merchName_3 = req.body.merchName_3
+	var merchName_4 = req.body.merchName_4
+	var merchName_5 = req.body.merchName_5
+	var merchName_6 = req.body.merchName_6
+	var merchName_7 = req.body.merchName_7
+
+var numOfMerch = [];
+var merchList = [merchName_1, merchName_2, merchName_3, merchName_4, merchName_5, merchName_6, merchName_7].filter(function(merch){ 
+				    	return merch !== '';
 				    	 });
-	console.log(merchList)
-
+for (var i = 0; i <= merchList.length; i++) {
+ var merch = "merch_"+ i;
+ numOfMerch[i] = merch
+}
+console.log("Merhclist", merchList)
+console.log("numOfMerchlist", numOfMerch)
 
 	var delayInMilliseconds = 10000; //1 second
 	var attendeeArr = attendees.split(",");
 
-	var newWorkspace = {url: url, attendeeList: []};
+	var newWorkspace = {url: url, merchList, attendeeList: []};
 	// TILL SENARE, Lägg till attendees här, från /new formet
 	Workspace.create(newWorkspace, function(err, workspace){
 		if(err){
@@ -88,10 +94,10 @@ app.post("/dashlist", function(req, res){
  				attendeeArr.forEach(function(attendee){
  					
 						newAttendee = {name: attendee}
-						merchList.forEach(function(merch){
+						numOfMerch.forEach(function(merch){
 							newAttendee[merch] = 0;
 						})
-						console.log("nya forEach", newAttendee)/*, other_1: 0, other_2: 0}*/
+						/*console.log("nya forEach", newAttendee), other_1: 0, other_2: 0}*/
 							Attendee.create(newAttendee, function(err, newlyCreated){
 								if(err){
 									console.log(err)
@@ -105,7 +111,8 @@ app.post("/dashlist", function(req, res){
 								}
 							})
 						})
- 				
+
+ 				console.log(workspace)
  				res.redirect("/dashlist")
 						
 						}
@@ -115,13 +122,17 @@ app.post("/dashlist", function(req, res){
 
 // Declare innan :id annars funkar den inte
 app.get("/dashlist/new", function(req, res){
-
 	res.render("workspaces/new")
 })
 
 
 // Shows specific workspace
 app.get("/dashlist/:id", function(req, res){
+/*	var merchName_1 = req.body.merchName_1;
+	var merchName_2 = req.body.merchName_2;
+	var merchNames = [merchName_1, merchName_2]
+	console.log(merchNames)*/
+
 	// Find the workspace with provided ID
 	Workspace.findById(req.params.id).populate("attendeeList").exec(function(err, workspace){
 		if(err){
@@ -157,8 +168,8 @@ app.post("/dashlist/:id/attendees", function(req, res){
 		} else {
 
 			if(typeof attendeeID == 'undefined') {
-
-							newAttendee = {name: attendee, beers: 0, cider: 0, wine: 0, liquor: 0, NonAlcoholic: 0, other_1: 0, other_2: 0}
+							/*console.log(Attendee.find({}))*/
+							newAttendee = {name: attendee}
 							Attendee.create(newAttendee, function(err, newlyCreated){
 								if(err){
 									console.log(err)
@@ -211,9 +222,13 @@ app.post("/dashlist/:id/attendees", function(req, res){
 // SHOW - shows more info about one attendee
 app.get("/dashlist/:id/attendees/:attendeeID", function(req, res){
 	// Find the workspace with provided ID
-	Attendee.findById(req.params.attendeeID, function(err, foundAttendee){
-		res.render("attendees/show", {attendee: foundAttendee})
+
+	Workspace.findById(req.params.id, function(err, foundWorkspace){
+		Attendee.findById(req.params.attendeeID, function(err, foundAttendee){
+			res.render("attendees/show", {attendee: foundAttendee, workspace: foundWorkspace})
 	})
+	})
+	
 })
 
 

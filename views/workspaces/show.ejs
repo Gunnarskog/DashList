@@ -20,14 +20,9 @@
 				      <th><strong>Name</strong></th>
 				    	<% allAttendees = workspace.attendeeList%> 
 
-				    	<% attendee = allAttendees[1] %>	
-				    	<%console.log(attendee)%>
-				    		<%var keys = Object.keys(attendee.toJSON());%>
-				    		<%keys.shift()%>
-				    		<%keys.shift()%>
-				    		<%keys.pop()%>
-							<% keys.forEach(function(key){ %>		
-				      		<th><strong><%= key %></strong></th>
+				    	<!--  -->
+							<% workspace.merchList.forEach(function(merch){ %>		
+				      		<th><strong><%= merch %></strong></th>
 				      
 				    	  <%});%>
 
@@ -74,6 +69,7 @@
 				
 				  </tbody>
 				</table>
+
 
 			<a id="adder" href="/dashlist/<%= workspace._id %>/attendees/new">Click here to add guest<a>
 
