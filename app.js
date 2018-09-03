@@ -95,7 +95,7 @@ console.log("numOfMerchlist", numOfMerch)
 						numOfMerch.forEach(function(merch){
 							newAttendee[merch] = 0;
 						})
-						/*console.log("nya forEach", newAttendee), other_1: 0, other_2: 0}*/
+						
 							Attendee.create(newAttendee, function(err, newlyCreated){
 								if(err){
 									console.log(err)

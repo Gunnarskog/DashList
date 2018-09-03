@@ -1,6 +1,13 @@
 <% include ../partials/header %>
 
 <!--  -->
+<style type="text/css">
+	body {background: url(https://images.unsplash.com/photo-1535916295067-6f479c206d67?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a855f608bf344c6a1bd5afa426a9c139&auto=format&fit=crop&w=1868&q=80);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+ 	background-position: center center;}
+</style>
 <div id="create" class="container">
 	<div class="row">
 			<div class="col-12">
@@ -10,7 +17,8 @@
 				</div>
 				<!-- Enter URL form -->
 			
-			<form action="/dashlist" method="POST">
+			<form id="mainCreateForm" action="/dashlist" method="POST">
+				<div class="innerForm">
 			    <label for="form1">Create new dashlist URL</label>
 			    <div class="form-group">
 				<input id="newURL" type="text" name="url" placeholder="Enter a desired URL" required>
@@ -27,28 +35,32 @@
 			<input name="merchName_1" class="form-check-input" type="text">
 			<input name="merchName_2" class="form-check-input" type="text">
 			</div> -->
-			<div class="form-check form-check-block-inline">
+			<div class="container">
 
-				<table id="merchTable" class="table table-dark table-striped">
-				  <thead class="thead-dark">
-				    <tr>
-				      <th><input name="merchName_1" type="text" placeholder="Enter desired merch"></th>
-				      <th><input name="merchName_2" type="text" placeholder="Enter desired merch"></th>
-					  <th><input name="merchName_3" type="text" placeholder="Enter desired merch"></th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <tr>
-				      <th><input name="merchName_4" type="text" placeholder="Enter desired merch"></th>
-				      <th><input name="merchName_5" type="text" placeholder="Enter desired merch"></th>
-				      <th><input name="merchName_6" type="text" placeholder="Enter desired merch"></th>
-				    </tr>
-				    <th></th>
-				      <th><input name="merchName_7" type="text" placeholder="Enter desired merch"></th>
-					<th></th>
-				  </tbody>
-				</table>
+				<div id="firstMerch" class="merch"><input name="merchName_1" type="text" placeholder="Enter desired merch" display="block!important"></div>
+				<div class="merch"><input name="merchName_2" type="text" placeholder="Enter desired merch"></div>
+				<div class="merch"><input name="merchName_3" type="text" placeholder="Enter desired merch"></div>
+				<div class="merch"><input name="merchName_4" type="text" placeholder="Enter desired merch"></div>
+				<div class="merch"><input name="merchName_5" type="text" placeholder="Enter desired merch"></div>
+				<div class="merch"><input name="merchName_6" type="text" placeholder="Enter desired merch"></div>
+				<div class="merch"><input name="merchName_7" type="text" placeholder="Enter desired merch"></div>
+				<button onclick="merchFunc()" id="moreMerchButton" type="button">Add merchendise</button>
 
+				<script type="text/javascript">
+					var i = -1;
+					var merch = document.querySelectorAll(".merch");
+					var moreMerchButton = document.querySelector("#moreMerchButton")
+					function merchFunc(){
+						i++;
+						merch[i].style.display = "block";
+						console.log(i)
+						
+						if (i >= merch.length){
+							moreMerchButton.style.display = "none";
+						}
+					}
+						
+				</script>
   	</div>
 <!-- Attendance form -->
 			<h3 id="whoWillAttend">Who will be attending?</h3>
@@ -56,11 +68,12 @@
   <!-- 	<form id="newNames" action="/dashlist" method="POST"> -->
        <div class="form-group">
           <label for="names">Enter the names of the all the attendees, separate each name with a comma (,)</label>
-          <input name="attendees" class="form-control" placeholder="Enter name" required> 
-          <input type="submit" value="Add">
+          <input name="attendees" class="form-control" placeholder="Enter names" required> 
+          <input id="doneButton" type="submit" value="Done!">
          <!--  <input type="button" onclick="myCreateFunction()" class="btn btn-light" id="add" value="Add name" >
           <input type="button" onclick="myDeleteFunction()" class="btn btn-light" id="remove" value="Remove name" > -->
       </div>
+  </div>
     </form>
 
 
